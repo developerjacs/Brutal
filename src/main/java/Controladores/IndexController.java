@@ -26,7 +26,6 @@ public class IndexController implements Serializable{
     
     @PostConstruct
     public void init() {
-        saludo="hola";
     }
 
     public String getSaludo() {
