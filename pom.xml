@@ -16,6 +16,7 @@
         <pathFirefox>C:/Program Files (x86)/Mozilla Firefox/firefox.exe</pathFirefox>
         <geckoDriver>${basedir}/src/main/resources/geckodriver.exe</geckoDriver>
     </properties>
+    
 
     <profiles>
         <profile>
@@ -45,6 +46,8 @@
             <url>https://repository.primefaces.org/</url>
             <layout>default</layout>
         </repository>
+        
+        
         <repository>
             <id>central</id>
             <name>Central Repository</name>
@@ -90,6 +93,12 @@
             <artifactId>transaction-api</artifactId>
             <version>1.1</version>
         </dependency>
+        
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>font-awesome</artifactId>
+            <version>4.7.0</version>
+        </dependency>
 
         <!-- JSF ..........................................-->
         <dependency>
@@ -107,6 +116,11 @@
             <artifactId>commons-lang</artifactId>
             <version>2.6</version>
             <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>org.primefaces.themes</groupId>
+            <artifactId>all-themes</artifactId>
+            <version>1.0.10</version>
         </dependency>
         <dependency>
             <groupId>javax</groupId>
@@ -135,25 +149,6 @@
             <artifactId>primefaces</artifactId>
             <version>7.0</version>
             <type>jar</type>
-        </dependency>
-
-        <dependency>
-            <groupId>org.primefaces.themes</groupId>
-            <artifactId>paradise</artifactId>
-            <version>1.0.1</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.primefaces.extensions</groupId>
-            <artifactId>primefaces-extensions</artifactId>
-            <version>7.0.2</version>
-            <type>jar</type>
-        </dependency>
-
-        <dependency>
-            <groupId>org.primefaces.extensions</groupId>
-            <artifactId>resources-ckeditor</artifactId>
-            <version>7.0.2</version>
         </dependency>
 
         <dependency>
@@ -207,26 +202,13 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.16</version>
         </dependency>
-        
-        <dependency>
-            <groupId>es.virtualsw</groupId>
-            <artifactId>sepa</artifactId>
-            <version>1.0</version>
-        </dependency>
-        
+
         <!-- Test ............................................. -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
             <scope>test</scope>
-        </dependency>
-        
-        <!-- Compresor para CSS's y JS's ............................................. -->
-        <dependency>
-            <groupId>net.alchim31.maven</groupId>
-            <artifactId>yuicompressor-maven-plugin</artifactId>
-            <version>1.4.0</version>
         </dependency>
     </dependencies>
 
@@ -292,42 +274,6 @@
                         <geckoDriver>${geckoDriver}</geckoDriver>
                         <browser>${browser}</browser>
                     </systemPropertyVariables>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.zeroturnaround</groupId>
-                <artifactId>jrebel-maven-plugin</artifactId>
-                <version>1.1.7</version>
-                <executions>
-                    <execution>
-                        <id>generate-rebel-xml</id>
-                        <phase>process-resources</phase>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            
-            <!--UNIFICADOR CSS Y JS-->
-            <plugin>
-                <groupId>net.alchim31.maven</groupId>
-                <artifactId>yuicompressor-maven-plugin</artifactId>
-                <version>1.4.0</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>compress</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <nosuffix>true</nosuffix>
-                    <linebreakpos>-1</linebreakpos>
-                    <excludes>
-                        <exclude>**/*.js</exclude>
-                        <exclude>**/*.css</exclude>
-                    </excludes>
                 </configuration>
             </plugin>
         </plugins>
