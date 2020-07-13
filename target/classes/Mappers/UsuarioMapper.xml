@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace= "Mappers.UsuarioMapper">
+
+    <resultMap id="MapaBasico" type="Usuario" autoMapping="true">
+    </resultMap>
+  
+    
+    <!--                CRUD               -->
+    <select id="countAll" resultType="Integer">
+        SELECT COUNT(*)
+        FROM Usuario
+    </select>
+    
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO Usuario
+        (correo, contraseña, usuario, nombre, apellidos, fecha_nacimiento)
+        VALUES
+        (#{correo}, #{contraseña}, #{usuario}, #{nombre}, #{apellidos}, #{fechaNacimiento})
+    </insert>
+    
+    <select id="selectAll" resultMap="MapaBasico" >
+        SELECT *
+        FROM Usuario u
+    </select>
+    
+    <update id="update">
+        UPDATE Usuario
+        SET
+        correo              = #{correo},
+        contraseña          = #{contraseña},
+        usuario             = #{usuario},
+        nombre              = #{nombre},
+        apellidos           = #{apellidos},
+        fecha_nacimiento    = #{fechaNacimiento}
+        WHERE id = #{idUsuario}
+    </update>
+    
+    <delete id="delete" >
+        DELETE FROM Usuario
+        WHERE id = #{idUsuario}
+    </delete>
+    
+    <!--                CONSULTAS               -->
+    <select id="selectByPrimaryKey" resultMap="MapaBasico">
+        SELECT *
+        FROM Usuario u
+        WHERE id = #{idUsuario}
+    </select>
+    
+    <select id="selectByUsuario" resultMap="MapaBasico">
+        SELECT *
+        FROM Usuario u
+        WHERE usuario = #{usuario}
+    </select>
+</mapper>

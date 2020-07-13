@@ -5,9 +5,12 @@
  */
 package Controladores;
 
+import Models.Usuario;
+import Services.UsuarioService;
 import java.io.IOException;
 import java.io.Serializable;
 import javax.enterprise.context.SessionScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 import org.omnifaces.util.Faces;
 
@@ -19,6 +22,8 @@ import org.omnifaces.util.Faces;
 @SessionScoped
 public class LoginController implements Serializable{
 
+    @Inject
+    UsuarioService usuarioService;
     private String usuario;
     private String contraseña;
     
@@ -34,7 +39,9 @@ public class LoginController implements Serializable{
     
     public boolean checkLogin(){
         boolean ok = false;
-        if(usuario!=null && usuario.equals("admin") && contraseña!=null && contraseña.equals("admin")){
+        Usuario us =usuarioService.obtenerPorUsuario(usuario);
+        if(us!=null){
+            if(us.getContraseña().equals(contraseña))
             ok=true;
         }
         return ok;
@@ -44,6 +51,10 @@ public class LoginController implements Serializable{
         if(!checkLogin()){
             Faces.redirect("noPermisos.xhtml", null);
         }
+    }
+    
+    public String registro(){
+        return "registro.xhtml?faces-redirect=true";
     }
     
     public String getUsuario() {

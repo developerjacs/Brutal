@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <title>Login</title>
+        <style>
+            .ventana{
+                width: 50%;
+                margin: auto;
+                padding: 150px;
+                text-align: center;
+                border-radius: 10px;
+                color: white;
+                font-family: var;
+                font-size: 30px;
+            }
+            body{
+                background: url(imagenes/fondo-login.jpg);
+            }
+            .boton {
+                width: 100px;       
+            }
+        </style>
+
+    </head>
+    <body>
+        <h:outputStylesheet library="webjars" name="font-awesome/4.7.0/css/font-awesome.min-jsf.css"/>
+        <h:form>
+            <div class="ventana">
+                <div>
+                    <p:outputLabel style="margin-right: 55px" value="Usuario"/>
+                    <p:inputText value="#{loginController.usuario}" style="width: 200px; height: 20px"/>
+                </div>
+                <div style="margin-top: 25px; margin-bottom: 25px;">
+                    <p:outputLabel style="margin-right: 20px" value="Contraseña" />
+                    <p:inputText value="#{loginController.contraseña}" style="width: 200px; height: 20px"/>
+                </div>
+                <p:commandButton value="Entrar" action="#{loginController.login()}" style="margin-top: 10px; margin-right: 20px" styleClass="boton"/>
+                <p:commandButton value="Registrarse" action="#{loginController.registro()}" style="margin-top: 10px" styleClass="boton"/>
+
+            </div>
+        </h:form>
+    </body>
+</html>

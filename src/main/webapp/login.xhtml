@@ -44,7 +44,9 @@ and open the template in the editor.
                     <p:outputLabel style="margin-right: 20px" value="Contraseña" />
                     <p:inputText value="#{loginController.contraseña}" style="width: 200px; height: 20px"/>
                 </div>
-                <p:commandButton value="Entrar" action="#{loginController.login()}" style="margin-top: 10px" styleClass="boton"/>
+                <p:commandButton value="Entrar" action="#{loginController.login()}" style="margin-top: 10px; margin-right: 20px" styleClass="boton"/>
+                <p:commandButton value="Registrarse" action="#{loginController.registro()}" style="margin-top: 10px" styleClass="boton"/>
+
             </div>
         </h:form>
     </body>
