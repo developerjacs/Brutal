@@ -20,43 +20,43 @@ import org.omnifaces.util.Faces;
  */
 @Named(value = "loginController")
 @SessionScoped
-public class LoginController implements Serializable{
+public class LoginController implements Serializable {
 
     @Inject
     UsuarioService usuarioService;
     private String usuario;
     private String contraseña;
-    
 
-    public String login() throws IOException{
-        String url="login.xhtml";
-        if(checkLogin()){
-            url="index.xhtml?faces-redirect=true";
+    public String login() throws IOException {
+        String url = "login.xhtml";
+        if (checkLogin()) {
+            url = "index.xhtml?faces-redirect=true";
         }
-        
+
         return url;
     }
-    
-    public boolean checkLogin(){
-        boolean ok = false;
-        Usuario us =usuarioService.obtenerPorUsuario(usuario);
-        if(us!=null){
-            if(us.getContraseña().equals(contraseña))
-            ok=true;
-        }
-        return ok;
+
+    public boolean checkLogin() {
+//        boolean ok = false;
+//        Usuario us =usuarioService.obtenerPorUsuario(usuario);
+//        if(us!=null){
+//            if(us.getContraseña().equals(contraseña))
+//            ok=true;
+//        }
+//        return ok;
+        return true;
     }
-    
-    public void checkPermisos() throws IOException{
-        if(!checkLogin()){
+
+    public void checkPermisos() throws IOException {
+        if (!checkLogin()) {
             Faces.redirect("noPermisos.xhtml", null);
         }
     }
-    
-    public String registro(){
+
+    public String registro() {
         return "registro.xhtml?faces-redirect=true";
     }
-    
+
     public String getUsuario() {
         return usuario;
     }
@@ -72,7 +72,5 @@ public class LoginController implements Serializable{
     public void setContraseña(String contraseña) {
         this.contraseña = contraseña;
     }
-    
-    
-    
+
 }

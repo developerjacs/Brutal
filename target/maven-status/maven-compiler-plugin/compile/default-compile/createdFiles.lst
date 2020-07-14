@@ -1,7 +1,0 @@
-Controladores\Filter.class
-Controladores\IndexController.class
-Configuracion\SqlSessionFactoryProvider.class
-Models\Usuario.class
-Services\UsuarioService.class
-Controladores\HeaderController.class
-Controladores\LoginController.class

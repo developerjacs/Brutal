@@ -7,24 +7,25 @@
     <h:head>
         <h:outputStylesheet name="global.css"/>
         <h:outputStylesheet library="webjars" name="font-awesome/4.7.0/css/font-awesome.min-jsf.css" />
-
     </h:head>
     <h:body>
         <f:event type="preRenderView" listener="#{loginController.checkPermisos()}"/>
-        <div class="header">
-            <ui:insert name="header" >
-                <ui:include src="header.xhtml" />
-            </ui:insert>
-        </div>
-        <div class="contenido">
-            <ui:insert name="contenido">
-                <ui:include src="contenido.xhtml" />
-            </ui:insert>
-        </div>
-        <div class="footer">
-            <ui:insert name="footer" >
-                <ui:include src="footer.xhtml" />
-            </ui:insert>
+        <div class="todo" style="background-image: url(imagenes/fondo-login.jpg)"> 
+            <div class="header">
+                <ui:insert name="header" >
+                    <ui:include src="header.xhtml" />
+                </ui:insert>
+            </div>
+            <div class="contenido">
+                <ui:insert name="contenido">
+                    <ui:include src="contenido.xhtml" />
+                </ui:insert>
+            </div>
+            <div class="footer">
+                <ui:insert name="footer" >
+                    <ui:include src="footer.xhtml" />
+                </ui:insert>
+            </div>
         </div>
     </h:body>
 </html>

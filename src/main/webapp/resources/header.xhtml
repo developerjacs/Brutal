@@ -13,13 +13,11 @@
                 }
             </style>
             <h:form>
-                <p:menubar styleClass="menuitem">
-                    <p:menuitem value="Inicio" outcome="index" icon="fa fa-home"/>
-                    <p:menuitem value="Algo1" />
-                    <p:menuitem value="Algo2"/>
-                    <p:menuitem value="Contacto" outcome="contacto" icon="fa fa-commenting"/>
+                <p:menubar styleClass="menuitem" style="background-image: url(imagenes/banner.jpg)">
+                    <p:menuitem value="Inicio" outcome="index" icon="fa fa-home" style="color: lemonchiffon"/>
+                    <p:menuitem value="Contacto" outcome="contacto" icon="fa fa-commenting" style="color: lemonchiffon"/>
                     <f:facet name="options">
-                        <p:inputText style="margin:1px 10px 1px 1px;" placeholder="Search"/>
+                        <p:inputText style="margin:1px 10px 1px 1px;" placeholder="Buscar"/>
                         <p:commandButton action="#{headerController.logout()}" value="Desconectarse" icon="fa fa-sign-out" />
                     </f:facet>
                 </p:menubar>

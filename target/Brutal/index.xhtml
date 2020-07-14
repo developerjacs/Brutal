@@ -10,12 +10,9 @@
     <h:body>
         <ui:composition template="/resources/template.xhtml">
             <ui:define name="contenido">
-                <p:dataTable value="#{indexController.usuarios}" var="usuario">
-                    <p:column headerText="Nombre">
-                        <p:outputLabel value="#{usuario.nombre}"/>
-                    </p:column>
-
-                </p:dataTable>
+                <ui:insert name="calendario" >
+                    <ui:include src="calendario.xhtml" />
+                </ui:insert>  
             </ui:define>
         </ui:composition>
     </h:body>
